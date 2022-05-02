@@ -7,6 +7,9 @@ About this weapon: [Link](https://cso.fandom.com/wiki/Hunter_Killer_X-7)
 ReHLDS, ReGameDLL, Metamod-r (or Metamod-P), AMX Mod X, ReAPI.
 * Tip: Recommend using the latest versions.
 
+### Demo Video
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/lKYP6cmUWtE/0.jpg)](https://youtu.be/lKYP6cmUWtE)
+
 ### For using custom MuzzleFlash and Smoke WallPuff
 * Download [API MuzzleFlash](https://github.com/YoshiokaHaruki/AMXX-API-Muzzle-Flash)
 * Download [API Smoke WallPuff](https://github.com/YoshiokaHaruki/AMXX-API-Smoke-WallPuff)
