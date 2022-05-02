@@ -13,3 +13,14 @@ ReHLDS, ReGameDLL, Metamod-r (or Metamod-P), AMX Mod X, ReAPI.
 ### For using custom MuzzleFlash and Smoke WallPuff
 * Download [API MuzzleFlash](https://github.com/YoshiokaHaruki/AMXX-API-Muzzle-Flash)
 * Download [API Smoke WallPuff](https://github.com/YoshiokaHaruki/AMXX-API-Smoke-WallPuff)
+
+**If you don't want to use the API, just find these lines:**
+```Pawn
+#include <api_muzzleflash>
+#include <api_smokewallpuff>
+```
+**and delete or comment this lines, like this:**
+```Pawn
+// #include <api_muzzleflash>
+// #include <api_smokewallpuff>
+```
