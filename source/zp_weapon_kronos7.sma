@@ -12,7 +12,7 @@ public stock const PluginName[ ] =			"[ZP] Weapon: Hunter Killer X-7";
 public stock const PluginVersion[ ] =		"1.0";
 public stock const PluginAuthor[ ] =		"Yoshioka Haruki";
 
-/* ~ [ Includes ]~ */
+/* ~ [ Includes ] ~ */
 #include <amxmodx>
 #include <fakemeta>
 #include <hamsandwich>
@@ -624,8 +624,11 @@ public Ham_CBasePlayerWeapon__SecondaryAttack_Pre( const pItem )
 public bool: CBasePlayerWeapon__ResetMode( const pPlayer, const pItem, const bool: bWithAnimation )
 {
 	#if defined _api_muzzleflash_included
-		zc_muzzle_destroy( pPlayer, gl_iMuzzleFlash[ Muzzle_Timer ] );
-		zc_muzzle_destroy( pPlayer, gl_iMuzzleFlash[ Muzzle_BackGround ] );
+		if ( is_user_connected( pPlayer ) )
+		{
+			zc_muzzle_destroy( pPlayer, gl_iMuzzleFlash[ Muzzle_Timer ] );
+			zc_muzzle_destroy( pPlayer, gl_iMuzzleFlash[ Muzzle_BackGround ] );
+		}
 
 		UTIL_UpdateHideWeapon( MSG_ONE, pPlayer, get_member( pPlayer, m_iHideHUD ) & ~HIDEHUD_CROSSHAIR );
 	#endif
@@ -1014,7 +1017,7 @@ stock UTIL_CurWeapon( const iDest, const pReceiver, const bool: bIsActive, const
 /* -> Update HideWeapon <- */
 stock UTIL_UpdateHideWeapon( const iDest, const pReceiver, const bitsFlags )
 {
-	static iMsgId_HideWeapon; if( !iMsgId_HideWeapon ) iMsgId_HideWeapon = get_user_msgid( "HideWeapon" );
+	static iMsgId_HideWeapon; if ( !iMsgId_HideWeapon ) iMsgId_HideWeapon = get_user_msgid( "HideWeapon" );
 
 	message_begin( iDest, iMsgId_HideWeapon, .player = pReceiver );
 	write_byte( bitsFlags );
@@ -1027,7 +1030,7 @@ stock UTIL_UpdateHideWeapon( const iDest, const pReceiver, const bitsFlags )
 /* -> Set user FOV <- */
 stock UTIL_SetUserFOV( const iDest, const pReceiver, const iFOV = DEFAULT_NO_ZOOM )
 {
-	static iMsgId_SetFOV; if( !iMsgId_SetFOV ) iMsgId_SetFOV = get_user_msgid( "SetFOV" );
+	static iMsgId_SetFOV; if ( !iMsgId_SetFOV ) iMsgId_SetFOV = get_user_msgid( "SetFOV" );
 
 	message_begin( iDest, iMsgId_SetFOV, .player = pReceiver );
 	write_byte( iFOV );
